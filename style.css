@@ -33,10 +33,20 @@ html{
     font-size: 62.5%;
 }
 header{
+    z-index: 5;
+    max-width: 1140px;
+    width: 100%;
+    position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 28px 15px;
+    top: 0;
+    background-color: var(--off-white);
+}
+body{
+    max-width: 1140px;
+    margin: 0 auto;
 }
 .header__logo{
     width: 44px;
@@ -47,6 +57,7 @@ main{
     grid-template-rows: auto;
     padding: 0 15px;
     gap: 22px;
+    margin-top: 83px;
 }
 .container__img{
     width: 100%;
@@ -61,6 +72,9 @@ h1{
     font-weight: 800;
     line-height: 4.1rem;
     color: var(--very-dark-blue);
+}
+.nav a:hover{
+    color: var(--soft-red);
 }
 .newsPrincipal{
     margin-bottom: 34px;
@@ -80,6 +94,10 @@ h1{
     font-weight: 700;
     font-size: 1.4rem;
     margin: 8px 0;
+    cursor: pointer;
+}
+.newsPrincipal__body button:hover{
+    background-color: var(--very-dark-blue);
 }
 .othersNews{
     background-color: var(--very-dark-blue);
@@ -97,6 +115,10 @@ h1{
     color: var(--off-white);
     font-size: 1.9rem;
     margin: 8px 0;
+    cursor: pointer;
+}
+.othersNews__child h3:hover{
+    color: var(--soft-orange)
 }
 .othersNews__child p{
     color: hsla(233, 8%, 79%,0.6);
@@ -127,6 +149,10 @@ hr{
 .topNews__container h3{
     font-size: 1.8rem;
     font-weight: 800;
+    cursor: pointer;
+}
+.topNews__container h3:hover{
+    color: var(--soft-red);
 }
 .topNews__container p{
     font-size: 1.5rem;
@@ -145,6 +171,146 @@ hr{
     gap: 13px;
     justify-content: center;
 }
+nav{
+    display: none;
+}
+.header__menu{
+    cursor: pointer;
+}
 .inactive{
     display: none;
+}
+/* NavClose */
+.opacity{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 7;
+    top: 0;
+    transform: translateY(-83px);
+}
+body{
+    position: relative;
+}
+.navClose{
+    position: fixed;
+    background-color: var(--off-white);
+    min-height: 100vh;
+    width: 70%;
+    top: 0;
+    right: 0;
+    padding: 30px 25px;
+    margin-top: 0;
+    text-align: end;
+    z-index: 11;
+}
+.navClose__list{
+    margin-top: 80px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+}
+.navClose a{
+    text-decoration: none;
+    font-size: 1.8rem;
+    color: var(--very-dark-blue);
+}
+@media(min-width: 768px){
+    main{
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: auto;
+        gap: 30px;
+    }
+    .nav{
+        display: flex;
+        gap: 30px;
+    }
+    .nav a{
+        text-decoration: none;
+        color: var(--dark-grayish-blue);
+        font-size: 1.6rem;
+    }
+    .container__img{
+        grid-column: span 2;
+    }
+    .newsPrincipal{
+        grid-column: span 2;
+        display: flex;
+    }
+    .header__menu{
+        display: none;
+    }
+}
+@media(min-width: 1024px){
+    .newsPrincipal{
+        display: flex;
+        gap: 54px;
+        align-items: center;
+    }
+    .newsPrincipal__body{
+        width: 120%;
+    }
+    .newsPrincipal__body p{
+        line-height: 2.4rem;
+        margin-bottom: 12px;
+    }
+    .newsPrincipal__body button{
+        padding: 16px 27px;
+    }
+    .header__menu{
+        display: none;
+    }
+    .header__logo{
+        width: 60px;
+    }
+    main{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-auto-rows: auto;
+        gap: 30px;
+    }
+    .container__img{
+        background-image: url(./assets/images/image-web-3-desktop.jpg);
+        grid-column: span 2;
+        height: 300PX;
+        background-position: cover;
+        margin-top: 0;
+    }
+    .othersNews{
+        grid-column: 3 / 4;
+        grid-row: 1/3;
+        width: 350px;
+        height: auto;
+    }
+    .othersNews h2{
+        font-size: 4rem;
+        margin-top: 7px;
+        margin-bottom: -3px;
+    }
+    .othersNews__child h3{
+        margin-bottom: 9px;
+    }
+    .othersNews__child{
+        margin-bottom: 1px;
+    }
+    .othersNews__child:last-child{
+        margin-bottom: 8PX;
+    }
+    .newsPrincipal{
+        grid-column: 1/3;
+        margin-bottom: 0;
+    }
+    .topNews{
+        grid-row: 3/4;
+        grid-column: 1/4;
+    }
+    .topNews__container{
+        width: 30%;
+    }
+    .newsPrincipal h1{
+        font-size: 5.6rem;
+        line-height: 5.65rem;
+    }
 }
